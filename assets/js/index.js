@@ -1,19 +1,10 @@
 'use strict';
 
-function logMessage(){
-  alert('message')
-}
+const img1 = document.querySelector('img');
+const [img] = document.getElementsByTagName("img");
 
-// const [,button] = document.getElementsByTagName('button');
-// button.addEventListener('click', logMessage);
+const [,text] = document.getElementsByClassName("text");
 
-// const id = 'unique';
-// const unique = document.getElementById(id);
-//const unique = document.getElementById('unique'); //O(1)
-// unique.addEventListener('click', logMessage);
+const li2 = document.querySelector('li:nth-child(2)');
 
-//const unique = document.querySelector('#unique');  //O(1)
-//const btn = document.querySelector('button:last-of-type');
-
-// const btns1 = document.getElementsByClassName('btn');
-// const btns2 = document.querySelectorAll('.btn');
+const ps = document.querySelectorAll('#main p');
