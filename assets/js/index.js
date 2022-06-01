@@ -13,10 +13,12 @@ const image = document.querySelector('.slide>img');
 const [prevBtn, nextBtn] = document.querySelectorAll('.slider-conainer>button');
 
 prevBtn.addEventListener('click', ()=>{
+  console.log(slider.currentIndex)
   slider.currentIndex = slider.prev();
   updateView();
 });
 nextBtn.addEventListener('click', ()=>{
+  console.log(slider.currentIndex)
   slider.currentIndex = slider.next();
   updateView();
 });
