@@ -30,12 +30,15 @@ updateView();
 
 /*-----------------------------------------------*/
 
-
-const unique = document.getElementById('unique');
-
-const valAttr = unique.getAttribute('title');
-unique.setAttribute('rel', 'relative text');
-if(unique.hasAttribute('title')){
-  unique.setAttribute('title', valAttr+' title text');
+const btns = document.querySelectorAll('body>button');
+for (const btn of btns) {
+  btn.addEventListener('click', ({target:{dataset}, target})=>{
+    console.log(dataset.path)
+    console.log(dataset.securePath)
+    target.style.borderColor = 'red'
+    target.style.paddingLeft = '1rem'
+  })
 }
+
+
 
