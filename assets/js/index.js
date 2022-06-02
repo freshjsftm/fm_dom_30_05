@@ -33,19 +33,9 @@ updateView();
 
 const unique = document.getElementById('unique');
 
-function btnUniqueHandler(e){
-  // e = e || event;
-  e.stopPropagation();
-  console.group();
-  //элемент по которому кликнули
-  console.log('target:', e.target);
-  //элемент чей обработчик отработал
-  console.log('currentTarget:', e.currentTarget)
-  console.groupEnd();
+const valAttr = unique.getAttribute('title');
+unique.setAttribute('rel', 'relative text');
+if(unique.hasAttribute('title')){
+  unique.setAttribute('title', valAttr+' title text');
 }
-
-unique.addEventListener('click', btnUniqueHandler);
-window.addEventListener('click', btnUniqueHandler);
-document.addEventListener('click', btnUniqueHandler);
-document.body.addEventListener('click', btnUniqueHandler);
 
