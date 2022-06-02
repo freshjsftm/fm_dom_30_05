@@ -33,16 +33,22 @@ updateView();
 
 const unique = document.getElementById('unique');
 
-function btnUniqueHandler(event){
+function btnUniqueHandler(e){
+  e = e || event;
+  console.group();
   //элемент по которому кликнули
-  console.log('target:', event.target);
+  console.log('target:', e.target);
   //элемент чей обработчик отработал
-  console.log('currentTarget:', event.currentTarget)
+  console.log('currentTarget:', e.currentTarget)
   // unique.removeEventListener('click', btnUniqueHandler);
   // unique.disabled = true;
+  //console.log('content e.target.innerText:', e.target.innerText);//
+ // console.log('content e.target.textContent:', e.target.textContent);//
+  console.groupEnd();
 }
 
 unique.addEventListener('click', btnUniqueHandler);
+unique.addEventListener('click', ()=>{alert(5)}, {capture:true, once:true});
 //unique.dispatchEvent(new MouseEvent('click'));
 
 window.addEventListener('click', btnUniqueHandler);
