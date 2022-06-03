@@ -23,7 +23,10 @@ ul{
   margin: 2rem 0;
   border: 2px solid #ddd;
 }
-.card-container{}
+.card-container{
+  display: flex;
+  flex-direction: column;
+}
 .card-photo{
   width: 200px;
   height: 250px;
