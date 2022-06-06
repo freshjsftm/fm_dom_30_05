@@ -46,7 +46,7 @@ const actors = [
     name: "Qwert Qwe",
     birthdate: "",
     photo:
-      "",
+      "https://media.wired.com/photos/5bb6accf0abf932caf294b18/master/pass/waves-730260985.jpg",
   },
   {
     id: 8,
