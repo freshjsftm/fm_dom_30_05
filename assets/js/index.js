@@ -5,17 +5,15 @@ const HTMLCards = actors
                     .map((actor)=>createCard(actor));
 
 function createCard(actor){
-  return createElement('li',{classNames:['card-wrapper']}, 
-    createElement('article',{classNames:['card-container']},
-      createWrapper(actor),
-      createElement('h2',{classNames:['card-fullname']},
-        document.createTextNode(actor.name || 'Noname')
-      ),
-      createElement('p',{classNames:['card-description']},
-        document.createTextNode(actor.birthdate || 'Month d, YYYY')
-      ),
-    )
+  const h2 = createElement('h2',{classNames:['card-fullname']},
+    document.createTextNode(actor.name || 'Noname')
   );
+  const p = createElement('p',{classNames:['card-description']},
+    document.createTextNode(actor.birthdate || 'Month d, YYYY')
+  )
+  const article = createElement('article',{classNames:['card-container']},
+    createWrapper(actor),h2,p);
+  return createElement('li',{classNames:['card-wrapper']}, article );
 }
 
 cardsList.append(...HTMLCards);
@@ -24,15 +22,12 @@ cardsList.append(...HTMLCards);
  * @param {string} tag 
  * @param {object} options 
  * @param {string[]} options.classNames
- * @param {string} options.typeEvent
- * @param {function} options.handlerEvent
- * @param {object[]} children 
+ * @param {objects} children 
  * @returns 
  */
-function createElement(tag, {classNames, typeEvent, handlerEvent}, ...children){
+function createElement(tag, {classNames}, ...children){
   const element = document.createElement(tag);
   element.classList.add(...classNames);
-  element.addEventListener(typeEvent, handlerEvent);
   element.append(...children);
   return element;
 }
