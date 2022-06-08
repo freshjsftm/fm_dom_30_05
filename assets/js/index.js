@@ -12,11 +12,18 @@ form.addEventListener("submit", (e) => {
     state.push(inputValue);
     target.reset();
     const li = createElement('li',{classNames:['item']},document.createTextNode(inputValue));
-    const btn = createElement('button',{},document.createTextNode('x'));
+    const btn = createElement('button',
+    {typeEvent:'click', handlerEvent:deleteBtnHandler.bind(li)},
+    document.createTextNode('x'));
     li.append(btn);
     list.append(li);
   }
 });
+
+function deleteBtnHandler(e){
+  //target.parentElement.remove();
+  this.remove();
+}
 
 /**
  * 
