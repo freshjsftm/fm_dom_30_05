@@ -1,55 +1,37 @@
 "use strict";
-const state=[];
-const form = document.getElementById('rootForm');
-const list = document.getElementById('list');
-const pattern = /^[A-Z][a-z]{1,12}$/;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const {target, target:{elements:{inputText}}} = e;
-  const inputValue = inputText.value.trim();
-  if(pattern.test(inputValue) && !state.includes(inputValue)){
-    state.push(inputValue);
-    target.reset();
-    const li = createElement('li',{classNames:['item']},document.createTextNode(inputValue));
-    const btn = createElement('button',
-    {typeEvent:'click', 
-    handlerEvent:deleteBtnHandler.bind(li),
-    dataValue:inputValue},
-    document.createTextNode('x'));
-    li.append(btn);
-    list.append(li);
-  }
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+  //while(true){}
 });
 
-function deleteBtnHandler({target}){
-  state.splice(state.indexOf(target.dataset.idValue), 1);
-  this.remove(); //this привязали с помощью bind
+// console.log(1);
+// setTimeout(()=>{console.log(3)},0);
+// console.log(2);
+
+const logNumberWithDelay = function(){
+  let count = 0;
+  const identificator = setInterval(
+  ()=>{
+    console.log(count++);
+    if(count>10){
+      clearInterval(identificator);
+    }
+  },
+  500);
 }
+logNumberWithDelay();
 
-/**
- * 
- * @param {string} tag 
- * @param {object} options 
- * @param {string[]} options.classNames
- * @param {string} options.typeEvent
- * @param {function} options.handlerEvent
- * @param {objects} children 
- * @returns 
- */
- function createElement(tag, {classNames=[],typeEvent='',handlerEvent=null,dataValue=''}, ...children){
-  const element = document.createElement(tag);
-  if(classNames.length){
-    element.classList.add(...classNames);
-  }  
-  if(dataValue){ 
-    element.dataset.idValue = dataValue;
-  }
-  if(handlerEvent){
-    element.addEventListener(typeEvent, handlerEvent);
-  }
-  element.append(...children);
-  return element;
-}
+//clearInterval(identificator);
+
+/*
+написать функцию, которая выводит в консоль числа от 0 до 10 с интервалом в 300мс
+*/
 
 
+// const identificator1 = setInterval(function (){
+//   for(let i = 0; i<10; i++){
+//     console.log(i);
+//   }
+// }, 3000);
