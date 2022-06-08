@@ -12,7 +12,8 @@ form.addEventListener("submit", (e) => {
     state.push(inputValue);
     target.reset();
     const li = createElement('li',{classNames:['item']},document.createTextNode(inputValue));
-    /* Добавить в li кнопку с крестиком */
+    const btn = createElement('button',{},document.createTextNode('x'));
+    li.append(btn);
     list.append(li);
   }
 });
@@ -22,14 +23,19 @@ form.addEventListener("submit", (e) => {
  * @param {string} tag 
  * @param {object} options 
  * @param {string[]} options.classNames
+ * @param {string} options.typeEvent
+ * @param {function} options.handlerEvent
  * @param {objects} children 
  * @returns 
  */
- function createElement(tag, {classNames=[]}, ...children){
+ function createElement(tag, {classNames=[],typeEvent='',handlerEvent=null}, ...children){
   const element = document.createElement(tag);
   if(classNames.length){
     element.classList.add(...classNames);
   }  
+  if(handlerEvent){
+    element.addEventListener(typeEvent, handlerEvent);
+  }
   element.append(...children);
   return element;
 }
