@@ -1,13 +1,22 @@
 "use strict";
 
+function loadImage(path){
+  const image = new Image();
+  image.src = path;
 
-const myPromise = new Promise(executor);
-function executor(resolve, reject){
-  Math.random()>0.5?resolve('ok'):reject('(((');
+  return new Promise((resolve, reject)=>{
+    image.addEventListener('load', ()=>{
+      resolve(image);
+    });
+    image.addEventListener('error', ()=>{
+      reject(new Error('path invalid'));
+    });
+  });
 }
-myPromise
-  .then((response)=>{console.log(response)})
-  .catch((error)=>{console.log(error)})
+
+loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg')
+  .then((image)=>{document.body.prepend(image)})
+  .catch((err)=>{console.log(err)})
 
 
 
