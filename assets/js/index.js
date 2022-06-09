@@ -11,7 +11,7 @@
 // });
 
 fetch('./assets/js/data.json')
-  .then((response)=>response.json())
+  .then((response)=>response.json(), (err)=>{console.log(err)})
   .then((data)=>{
     data.forEach((user)=>{console.log(user.name)})
-  })
+  }, (err)=>{console.log(err)})
