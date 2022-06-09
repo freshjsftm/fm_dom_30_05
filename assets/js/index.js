@@ -1,25 +1,17 @@
 "use strict";
 
-const user = {
-  name:'Elon',
-  sname:'Musk',
-  age:50,
-  getFullName(){
-    return `${this.name} ${this.sname}`;
-  },
-  isMale:true,
-  pet: undefined,
-  isUkraine: null,
-  [Symbol('test')]:123,
-  children:['one','two'],
-  cars:{
-    car1:{color:'red'},
-    car2:{color:'pink'},
-  },
-}
-console.log(user);
-const serializeUser = JSON.stringify(user);
-console.log(serializeUser);
+// const promise = fetch('./assets/js/data.json');
 
-const deserializeUser = JSON.parse(serializeUser);
-console.log(deserializeUser);
+// promise.then((response)=>{
+//   console.log('ok');
+//   const jsonPromise = response.json();
+//   jsonPromise.then((data)=>{
+//     console.table(data)
+//   })
+// });
+
+fetch('./assets/js/data.json')
+  .then((response)=>response.json())
+  .then((data)=>{
+    data.forEach((user)=>{console.log(user.name)})
+  })
