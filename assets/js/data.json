@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Elon",
+    "sname": "Musk",
+    "age": 50,
+    "isMale": true,
+    "isUkraine": null,
+    "children": ["one", "two"],
+    "cars": {
+      "car1": { "color": "red" },
+      "car2": { "color": "pink" }
+    }
+  },
+  {
+    "name": "Elen",
+    "sname": "Musk",
+    "age": 80,
+    "isMale": false,
+    "isUkraine": null,
+    "children": ["one", "two"],
+    "cars": {
+      "car1": { "color": "red" },
+      "car2": { "color": "pink" }
+    }
+  }
+]

@@ -1,37 +1,25 @@
 "use strict";
 
-const btn = document.getElementById("btn");
-
-btn.addEventListener("click", () => {
-  //while(true){}
-});
-
-// console.log(1);
-// setTimeout(()=>{console.log(3)},0);
-// console.log(2);
-
-const logNumberWithDelay = function(){
-  let count = 0;
-  const identificator = setInterval(
-  ()=>{
-    console.log(count++);
-    if(count>10){
-      clearInterval(identificator);
-    }
+const user = {
+  name:'Elon',
+  sname:'Musk',
+  age:50,
+  getFullName(){
+    return `${this.name} ${this.sname}`;
   },
-  500);
+  isMale:true,
+  pet: undefined,
+  isUkraine: null,
+  [Symbol('test')]:123,
+  children:['one','two'],
+  cars:{
+    car1:{color:'red'},
+    car2:{color:'pink'},
+  },
 }
-logNumberWithDelay();
+console.log(user);
+const serializeUser = JSON.stringify(user);
+console.log(serializeUser);
 
-//clearInterval(identificator);
-
-/*
-написать функцию, которая выводит в консоль числа от 0 до 10 с интервалом в 300мс
-*/
-
-
-// const identificator1 = setInterval(function (){
-//   for(let i = 0; i<10; i++){
-//     console.log(i);
-//   }
-// }, 3000);
+const deserializeUser = JSON.parse(serializeUser);
+console.log(deserializeUser);
