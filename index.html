@@ -4,37 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
+    <!-- fontawesome -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/sandbox.js"></script>
     <script defer src="./assets/js/index.js"></script>
   </head>
   <body>
 
-    <ul id="root">
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-      <li>item 4</li>
-      <li>item 5</li>
-      wer
-    </ul>
-    <article>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, quasi.</p>
-      <p>Commodi maxime unde similique vel minima nesciunt ipsam dignissimos natus.</p>
-      <p>Repellendus dolor doloremque rem culpa laboriosam error velit commodi ad!</p>
-    </article>
-    <script>
-      const root = document.getElementById('root');
-      root.addEventListener('click', handlerList);
-      const article = document.querySelector('article');
-      article.addEventListener('click', handlerList);
-      function handlerList({target}){
-        if(target===this){
-          return;
-        }
-        target.innerText += '!'; 
-      }
-    </script>
+    <section id="root"></section>
 
   </body>
 </html>

@@ -3,6 +3,7 @@ const cardsList = document.getElementById('cards-list');
 const HTMLCards = actors
                     .filter(({name,photo})=>name && photo)
                     .map((actor)=>createCard(actor));
+cardsList.append(...HTMLCards);
 
 function createCard(actor){
   const h2 = createElement('h2',{classNames:['card-fullname']},
@@ -16,7 +17,7 @@ function createCard(actor){
   return createElement('li',{classNames:['card-wrapper']}, article );
 }
 
-cardsList.append(...HTMLCards);
+
 /**
  * 
  * @param {string} tag 
