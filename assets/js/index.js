@@ -1,25 +1,14 @@
 "use strict";
 
-function loadImage(path){
-  const image = new Image();
-  image.src = path;
-
+function timeout(ms){
   return new Promise((resolve, reject)=>{
-    image.addEventListener('load', ()=>{
-      resolve(image);
-    });
-    image.addEventListener('error', ()=>{
-      reject(new Error('path invalid'));
-    });
+    setTimeout(()=>{resolve('hi from timeout')}, ms);
   });
 }
 
-loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg')
-  .then((image)=>{document.body.prepend(image)})
-  .catch((err)=>{console.log(err)})
-
-
-
+timeout(2000)
+  .then((info)=>{console.log(info)})
+  .catch((info)=>{console.error(info)})
 
 
 
